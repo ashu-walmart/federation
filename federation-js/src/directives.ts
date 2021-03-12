@@ -61,12 +61,24 @@ export const ProvidesDirective = new GraphQLDirective({
   },
 });
 
+export const InputKeyDirective = new GraphQLDirective({
+  name: 'inputKey',
+  locations: [DirectiveLocation.ARGUMENT_DEFINITION],
+  args: {
+    fields: {
+      type: GraphQLNonNull(GraphQLString),
+      key: GraphQLNonNull(GraphQLString),
+    },
+  },
+});
+
 export const federationDirectives = [
   KeyDirective,
   ExtendsDirective,
   ExternalDirective,
   RequiresDirective,
   ProvidesDirective,
+  InputKeyDirective,
 ];
 
 export default federationDirectives;
